@@ -3,7 +3,7 @@ package posttest1;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class GalanganKapal {
+public class Main {
     static void template(String str) {
         System.out.println("1. LIHAT DATA " + str);
         System.out.println("2. TAMBAH DATA " + str);
