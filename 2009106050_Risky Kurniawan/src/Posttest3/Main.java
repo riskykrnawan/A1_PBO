@@ -1,4 +1,4 @@
-package posttest2;
+package Posttest3;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -15,7 +15,8 @@ public class Main {
     static String mapKaryawan(Karyawan n, int i) {
         i+=1;
         return
-            "\n" + "[" + i + "]"  + "\n" +
+            """      
+            [""" + i + "]"  + "\n" +
             "ID      : " + n.getId() + "\n" +
             "Nama    : " + n.getNama() + "\n" +
             "Alamat  : " + n.getAlamat() + "\n" +
@@ -25,7 +26,7 @@ public class Main {
     }
 
     static void fetchKaryawan(ArrayList<Karyawan> dataKaryawan) {
-        if (dataKaryawan.size() == 0) {
+        if (dataKaryawan.isEmpty()) {
             System.out.println("DATA KOSONG!");
         }
         for (int i = 0; i < dataKaryawan.size(); i++) {
@@ -56,7 +57,9 @@ public class Main {
         static String mapKapal(Kapal n, int i) {
             i+=1;
             return
-                "\n" + "[" + i + "]"  + "\n" +
+                """
+                
+                [""" + i + "]"  + "\n" +
                 "ID                 : " + n.getId() + "\n" +
                 "Nama               : " + n.getNama() + "\n" +
                 "Jenis              : " + n.getJenis() + "\n" +
@@ -68,7 +71,7 @@ public class Main {
         }
 
         static void fetchKapal(ArrayList<Kapal> dataKapal) {
-            if (dataKapal.size() == 0) {
+            if (dataKapal.isEmpty()) {
                 System.out.println("DATA KOSONG!");
             }
             for (int i = 0; i < dataKapal.size(); i++) {
@@ -98,21 +101,94 @@ public class Main {
             hargaJual = myObj.nextInt();
             return new Kapal(nama, jenis, warna, tanggalPembuatan, kapasitasMaksimum, biayaPembuatan, hargaJual);
         }
+        
+//  Gudang
+    static String mapGudang(Gudang n, int i) {
+        i+=1;
+        return
+            """
+            
+            [""" + i + "]"  + "\n" +
+            "ID      : " + n.getId() + "\n" +
+            "Nama    : " + n.getNama() + "\n" +
+            "Alamat  : " + n.getAlamat() + "\n";
+    }
+    
+    static void fetchGudang(ArrayList<Gudang> dataGudang) {
+        if (dataGudang.isEmpty()) {
+            System.out.println("DATA KOSONG!");
+        }
+        for (int i = 0; i < dataGudang.size(); i++) {
+            System.out.println(
+                mapGudang(dataGudang.get(i), i)
+            );
+        }
+    }
+    static Gudang addGudang() {
+        String nama, alamat;
+        Scanner myObj = new Scanner(System.in);
+        System.out.print("Masukkan Nama    : ");
+        nama = myObj.nextLine();
+        System.out.print("Masukkan Alamat  : ");
+        alamat = myObj.nextLine();
+        return new Gudang(nama, alamat);
+    }
+    
+//  Supplier
+    static String mapSupplier(Supplier n, int i) {
+        i+=1;
+        return
+            """
+            
+            [""" + i + "]"  + "\n" +
+            "ID          : " + n.getId() + "\n" +
+            "Nama        : " + n.getNama() + "\n" +
+            "Alamat      : " + n.getAlamat() + "\n" +
+            "No Telepon  : " + n.getNoTelepon() + "\n" + 
+            "Email       : " + n.getEmail() + "\n" ;
+    }
+    
+    static void fetchSupplier(ArrayList<Supplier> dataSupplier) {
+        if (dataSupplier.isEmpty()) {
+            System.out.println("DATA KOSONG!");
+        }
+        for (int i = 0; i < dataSupplier.size(); i++) {
+            System.out.println(
+                mapSupplier(dataSupplier.get(i), i)
+            );
+        }
+    }
+    
+    static Supplier addSupplier() {
+        String nama, alamat, noTelp, email;
+        Scanner myObj = new Scanner(System.in);
+        System.out.print("Masukkan Nama    : ");
+        nama = myObj.nextLine();
+        System.out.print("Masukkan Alamat  : ");
+        alamat = myObj.nextLine();
+        System.out.print("Masukkan No Telp : ");
+        noTelp = myObj.nextLine();
+        System.out.print("Masukkan Email    : ");
+        email = myObj.nextLine();
+        return new Supplier(nama, alamat, noTelp, email);
+    }
 
 //  Pembeli
     static String mapPembeli(Pembeli n, int i) {
         i+=1;
         return
-                "\n" + "[" + i + "]"  + "\n" +
-                        "ID      : " + n.getId() + "\n" +
-                        "Nama    : " + n.getNama() + "\n" +
-                        "Alamat  : " + n.getAlamat() + "\n" +
-                        "No Telp : " + n.getNoTelp() + "\n" +
-                        "Gaji    : " + n.getEmail() + "\n";
+            """
+            
+            [""" + i + "]"  + "\n" +
+            "ID      : " + n.getId() + "\n" +
+            "Nama    : " + n.getNama() + "\n" +
+            "Alamat  : " + n.getAlamat() + "\n" +
+            "No Telp : " + n.getNoTelp() + "\n" +
+            "Gaji    : " + n.getEmail() + "\n";
     }
 
     static void fetchPembeli(ArrayList<Pembeli> dataPembeli) {
-        if (dataPembeli.size() == 0) {
+        if (dataPembeli.isEmpty()) {
             System.out.println("DATA KOSONG!");
         }
         for (int i = 0; i < dataPembeli.size(); i++) {
@@ -143,6 +219,8 @@ public class Main {
         ArrayList<Karyawan> dataKaryawan = new ArrayList<>();
         ArrayList<Kapal> dataKapal = new ArrayList<>();
         ArrayList<Pembeli> dataPembeli = new ArrayList<>();
+        ArrayList<Gudang> dataGudang = new ArrayList<>();
+        ArrayList<Supplier> dataSupplier = new ArrayList<>();
 
         // default element
         Karyawan risky = new Karyawan(
@@ -186,107 +264,130 @@ public class Main {
             System.out.println("6. EXIT");
             System.out.println("==============================================");
             System.out.print("Masukkan Pilihan: ");
+            
             pil = myObj.nextLine();
+            
             switch (pil) {
-                case "1":
+                case "1" -> {
                     template("KARYAWAN");
                     System.out.print("Masukkan Pilihan: ");
                     pil2 = myObj.nextLine();
                     System.out.println("\n");
                     switch (pil2) {
-                        case "1":
-                            fetchKaryawan(dataKaryawan);
-                            break;
-                        case "2":
-                            dataKaryawan.add(addKaryawan());
-                            break;
-                        case "3":
+                        case "1" -> fetchKaryawan(dataKaryawan);
+                        case "2" -> dataKaryawan.add(addKaryawan());
+                        case "3" -> {
                             fetchKaryawan(dataKaryawan);
                             System.out.print("Masukkan Index Karyawan Yang ingin anda ubah:");
                             pil3 = myObj.nextLine();
                             dataKaryawan.set(Integer.parseInt(pil3) - 1, addKaryawan());
-                            break;
-                        case "4":
+                    }
+                        case "4" -> {
                             fetchKaryawan(dataKaryawan);
                             System.out.print("Masukkan Index Karyawan Yang ingin anda hapus:");
                             pil3 = myObj.nextLine();
                             dataKaryawan.remove(Integer.parseInt(pil3) - 1);
-                            break;
-                        default:
-                            System.out.println("Mohon maaf, Input anda salah!");
-                            break;
                     }
-                    break;
-                case "2":
+                        default -> System.out.println("Mohon maaf, Input anda salah!");
+                    }
+                }
+                case "2" -> {
                     template("KAPAL");
                     System.out.print("Masukkan Pilihan: ");
                     pil2 = myObj.nextLine();
+                    System.out.println("\n");
                     switch (pil2) {
-                        case "1":
-                            fetchKapal(dataKapal);
-                            break;
-                        case "2":
-                            dataKapal.add(addKapal());
-                            break;
-                        case "3":
+                        case "1" -> fetchKapal(dataKapal);
+                        case "2" -> dataKapal.add(addKapal());
+                        case "3" -> {
                             fetchKapal(dataKapal);
                             System.out.print("Masukkan Index Kapal Yang ingin anda ubah:");
                             pil3 = myObj.nextLine();
                             dataKapal.set(Integer.parseInt(pil3) - 1, addKapal());
-                            break;
-                        case "4":
+                    }
+                        case "4" -> {
                             fetchKapal(dataKapal);
                             System.out.print("Masukkan Index Kapal Yang ingin anda hapus:");
                             pil3 = myObj.nextLine();
                             dataKapal.remove(Integer.parseInt(pil3) - 1);
-                            break;
-                        default:
-                            System.out.println("Mohon maaf, Input anda salah!");
-                            break;
                     }
-                    break;
-                case "3":
+                        default -> System.out.println("Mohon maaf, Input anda salah!");
+                    }
+                }
+                case "3" -> {
                     template("GUDANG");
                     System.out.print("Masukkan Pilihan: ");
-                    break;
-                case "4":
+                    pil2 = myObj.nextLine();
+                    System.out.println("\n");
+                    switch (pil2) {
+                        case "1" -> fetchGudang(dataGudang);
+                        case "2" -> dataGudang.add(addGudang());
+                        case "3" -> {
+                            fetchGudang(dataGudang);
+                            System.out.print("Masukkan Index Supplier Yang ingin anda ubah:");
+                            pil3 = myObj.nextLine();
+                            dataGudang.set(Integer.parseInt(pil3) - 1, addGudang());
+                        }
+                        case "4" -> {
+                            fetchGudang(dataGudang);
+                            System.out.print("Masukkan Index Supplier Yang ingin anda hapus:");
+                            pil3 = myObj.nextLine();
+                            dataGudang.remove(Integer.parseInt(pil3) - 1);
+                        }
+                        default -> System.out.println("Mohon maaf, Input anda salah!");
+                    }
+                }
+
+                case "4" -> {
                     template("SUPPLIER");
                     System.out.print("Masukkan Pilihan: ");
-                    break;
-                case "5":
+                    pil2 = myObj.nextLine();
+                    System.out.println("\n");
+                    switch (pil2) {
+                        case "1" -> fetchSupplier(dataSupplier);
+                        case "2" -> dataSupplier.add(addSupplier());
+                        case "3" -> {
+                            fetchSupplier(dataSupplier);
+                            System.out.print("Masukkan Index Supplier Yang ingin anda ubah:");
+                            pil3 = myObj.nextLine();
+                            dataSupplier.set(Integer.parseInt(pil3) - 1, addSupplier());
+                        }
+                        case "4" -> {
+                            fetchSupplier(dataSupplier);
+                            System.out.print("Masukkan Index Supplier Yang ingin anda hapus:");
+                            pil3 = myObj.nextLine();
+                            dataSupplier.remove(Integer.parseInt(pil3) - 1);
+                        }
+                        default -> System.out.println("Mohon maaf, Input anda salah!");
+                    }
+                }
+
+                case "5" -> {
                     template("PEMBELI");
                     System.out.print("Masukkan Pilihan: ");
                     pil2 = myObj.nextLine();
+                    System.out.println("\n");
                     switch (pil2) {
-                        case "1":
-                            fetchPembeli(dataPembeli);
-                            break;
-                        case "2":
-                            dataPembeli.add(addPembeli());
-                            break;
-                        case "3":
+                        case "1" -> fetchPembeli(dataPembeli);
+                        case "2" -> dataPembeli.add(addPembeli());
+                        case "3" -> {
                             fetchPembeli(dataPembeli);
                             System.out.print("Masukkan Index Kapal Yang ingin anda ubah:");
                             pil3 = myObj.nextLine();
                             dataPembeli.set(Integer.parseInt(pil3) - 1, addPembeli());
-                            break;
-                        case "4":
+                        }
+                        case "4" -> {
                             fetchPembeli(dataPembeli);
                             System.out.print("Masukkan Index Kapal Yang ingin anda hapus:");
                             pil3 = myObj.nextLine();
                             dataPembeli.remove(Integer.parseInt(pil3) - 1);
-                            break;
-                        default:
-                            System.out.println("Mohon maaf, Input anda salah!");
-                            break;
+                        }
+                        default -> System.out.println("Mohon maaf, Input anda salah!");
                     }
-                    break;
-                case "6":
-                    repeat = false;
-                    break;
-                default:
-                    System.out.println("Mohon maaf, Input anda salah!");
-                    break;
+                }
+
+                case "6" -> repeat = false;
+                default -> System.out.println("Mohon maaf, Input anda salah!");
             }
         }
     }
