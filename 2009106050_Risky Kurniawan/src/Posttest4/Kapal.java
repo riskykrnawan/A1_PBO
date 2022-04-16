@@ -1,10 +1,10 @@
-package Posttest3;
+package Posttest4;
 
 import java.util.UUID;
 
 public class Kapal {
     private String nama, jenis, warna, tanggalPembuatan, kapasitasMaksimum;
-    private int biayaPembuatan, hargaJual;
+    private int biayaPembuatan;
     private final UUID uuid = UUID.randomUUID();
     private final String id = "Kapal-" + uuid.toString();
 
@@ -15,8 +15,7 @@ public class Kapal {
         String warna,
         String tanggalPembuatan,
         String kapasitasMaksimum,
-        int biayaPembuatan,
-        int hargaJual
+        int biayaPembuatan
     ) {
         this.nama = nama;
         this.jenis = jenis;
@@ -24,7 +23,6 @@ public class Kapal {
         this.tanggalPembuatan = tanggalPembuatan;
         this.kapasitasMaksimum = kapasitasMaksimum;
         this.biayaPembuatan = biayaPembuatan;
-        this.hargaJual = hargaJual;
     }
 
     public String getId() {
@@ -48,9 +46,6 @@ public class Kapal {
     public int getBiayaPembuatan() {
         return biayaPembuatan;
     }
-    public int getHargaJual() {
-        return hargaJual;
-    }
 
     public void setNama(String nama) {
         this.nama = nama;
@@ -70,7 +65,10 @@ public class Kapal {
     public void setBiayaPembuatan(int biayaPembuatan) {
         this.biayaPembuatan = biayaPembuatan;
     }
-    public void setHargaJual(int hargaJual) {
-        this.hargaJual = hargaJual;
+    public String angkutMuatan () {
+        return "Kapal sedang mengangkut muatan";
+    }
+    public String angkutMuatan (String angkutan) {
+        return "Kapal sedang mengangkut " + angkutan;
     }
 }

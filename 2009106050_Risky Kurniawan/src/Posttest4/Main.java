@@ -1,4 +1,4 @@
-package Posttest3;
+package Posttest4;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -54,54 +54,145 @@ public class Main {
     }
 
 //  Kapal
-        static String mapKapal(Kapal n, int i) {
-            i+=1;
-            return
-                """
-                
-                [""" + i + "]"  + "\n" +
-                "ID                 : " + n.getId() + "\n" +
-                "Nama               : " + n.getNama() + "\n" +
-                "Jenis              : " + n.getJenis() + "\n" +
-                "Warna              : " + n.getWarna() + "\n" +
-                "Tanggal Pembuatan  : " + n.getTanggalPembuatan() + "\n" +
-                "Kapasitas Maksimum : " + n.getKapasitasMaksimum() + "\n" +
-                "Biaya Pembuatan    : " + n.getBiayaPembuatan() + "\n" +
-                "Harga Jual         : " + n.getHargaJual() + "\n";
-        }
+    static String mapKapal(Kapal n, int i) {
+        i+=1;
+        return
+            """
 
-        static void fetchKapal(ArrayList<Kapal> dataKapal) {
-            if (dataKapal.isEmpty()) {
-                System.out.println("DATA KOSONG!");
-            }
-            for (int i = 0; i < dataKapal.size(); i++) {
-                System.out.println(
-                        mapKapal(dataKapal.get(i), i)
-                );
-            }
-        }
+            [""" + i + "]"  + "\n" +
+            "ID                 : " + n.getId() + "\n" +
+            "Nama               : " + n.getNama() + "\n" +
+            "Jenis              : " + n.getJenis() + "\n" +
+            "Warna              : " + n.getWarna() + "\n" +
+            "Tanggal Pembuatan  : " + n.getTanggalPembuatan() + "\n" +
+            "Kapasitas Maksimum : " + n.getKapasitasMaksimum() + "\n" +
+            "Biaya Pembuatan    : " + n.getBiayaPembuatan() + "\n";
+    }
 
-        static Kapal addKapal() {
-            String nama, jenis, warna, tanggalPembuatan, kapasitasMaksimum;
-            int biayaPembuatan, hargaJual;
-            Scanner myObj = new Scanner(System.in);
-            System.out.print("Masukkan Nama               : ");
-            nama = myObj.nextLine();
-            System.out.print("Masukkan Jenis              : ");
-            jenis = myObj.nextLine();
-            System.out.print("Masukkan Warna              : ");
-            warna = myObj.nextLine();
-            System.out.print("Masukkan Tanggal Pembuatan  : ");
-            tanggalPembuatan = myObj.nextLine();
-            System.out.print("Masukkan Kapasitas Maksimum : ");
-            kapasitasMaksimum = myObj.nextLine();
-            System.out.print("Masukkan Biaya Pembuatan    : ");
-            biayaPembuatan = myObj.nextInt();
-            System.out.print("Masukkan Harga Jual         : ");
-            hargaJual = myObj.nextInt();
-            return new Kapal(nama, jenis, warna, tanggalPembuatan, kapasitasMaksimum, biayaPembuatan, hargaJual);
+    static void fetchKapal(ArrayList<Kapal> dataKapal) {
+        if (dataKapal.isEmpty()) {
+            System.out.println("DATA KOSONG!");
         }
+        for (int i = 0; i < dataKapal.size(); i++) {
+            System.out.println(
+                    mapKapal(dataKapal.get(i), i)
+            );
+        }
+    }
+
+    static Kapal addKapal() {
+        String nama, jenis, warna, tanggalPembuatan, kapasitasMaksimum;
+        int biayaPembuatan;
+        Scanner myObj = new Scanner(System.in);
+        System.out.print("Masukkan Nama               : ");
+        nama = myObj.nextLine();
+        System.out.print("Masukkan Jenis              : ");
+        jenis = myObj.nextLine();
+        System.out.print("Masukkan Warna              : ");
+        warna = myObj.nextLine();
+        System.out.print("Masukkan Tanggal Pembuatan  : ");
+        tanggalPembuatan = myObj.nextLine();
+        System.out.print("Masukkan Kapasitas Maksimum : ");
+        kapasitasMaksimum = myObj.nextLine();
+        System.out.print("Masukkan Biaya Pembuatan    : ");
+        biayaPembuatan = myObj.nextInt();
+        return new Kapal(nama, jenis, warna, tanggalPembuatan, kapasitasMaksimum, biayaPembuatan);
+    }
         
+//  KapalTanker
+    static String mapKapalTanker(KapalTanker n, int i) {
+        i+=1;
+        return
+            """
+
+            [""" + i + "]"  + "\n" +
+            "ID                 : " + n.getId() + "\n" +
+            "Nama               : " + n.getNama() + "\n" +
+            "Jenis              : " + n.getJenis() + "\n" +
+            "Warna              : " + n.getWarna() + "\n" +
+            "Tanggal Pembuatan  : " + n.getTanggalPembuatan() + "\n" +
+            "Kapasitas Maksimum : " + n.getKapasitasMaksimum() + "\n" +
+            "Biaya Pembuatan    : " + n.getBiayaPembuatan() + "\n" +
+            "Berat Muatan       : " + n.getBeratMuatan() + "\n";
+    }
+
+    static void fetchKapalTanker(ArrayList<KapalTanker> dataKapalTanker) {
+        if (dataKapalTanker.isEmpty()) {
+            System.out.println("DATA KOSONG!\n");
+        }
+        for (int i = 0; i < dataKapalTanker.size(); i++) {
+            System.out.println(
+                    mapKapal(dataKapalTanker.get(i), i)
+            );
+        }
+    }
+
+    static KapalTanker addKapalTanker() {
+        String nama, warna, tanggalPembuatan, kapasitasMaksimum;
+        int biayaPembuatan, beratMuatan;
+        Scanner myObj = new Scanner(System.in);
+        System.out.print("Masukkan Nama               : ");
+        nama = myObj.nextLine();
+        System.out.print("Masukkan Warna              : ");
+        warna = myObj.nextLine();
+        System.out.print("Masukkan Tanggal Pembuatan  : ");
+        tanggalPembuatan = myObj.nextLine();
+        System.out.print("Masukkan Kapasitas Maksimum : ");
+        kapasitasMaksimum = myObj.nextLine();
+        System.out.print("Masukkan Biaya Pembuatan    : ");
+        biayaPembuatan = myObj.nextInt();
+        System.out.print("Masukkan Berat Muatan    : ");
+        beratMuatan = myObj.nextInt();
+        return new KapalTanker(nama, "Kapal Tanker", warna, tanggalPembuatan, kapasitasMaksimum, biayaPembuatan, beratMuatan);
+    }
+        
+//  KapalTongkang
+    static String mapKapalTongkang(KapalTongkang n, int i) {
+        i+=1;
+        return
+            """
+
+            [""" + i + "]"  + "\n" +
+            "ID                 : " + n.getId() + "\n" +
+            "Nama               : " + n.getNama() + "\n" +
+            "Jenis              : " + n.getJenis() + "\n" +
+            "Warna              : " + n.getWarna() + "\n" +
+            "Tanggal Pembuatan  : " + n.getTanggalPembuatan() + "\n" +
+            "Kapasitas Maksimum : " + n.getKapasitasMaksimum() + "\n" +
+            "Biaya Pembuatan    : " + n.getBiayaPembuatan() + "\n" +
+            "Berat Muatan       : " + n.getBeratMuatan() + "\n";
+    }
+
+    static void fetchKapalTongkang(ArrayList<KapalTongkang> dataKapalTongkang) {
+        if (dataKapalTongkang.isEmpty()) {
+            System.out.println("DATA KOSONG!\n");
+        }
+        for (int i = 0; i < dataKapalTongkang.size(); i++) {
+            System.out.println(
+                    mapKapal(dataKapalTongkang.get(i), i)
+            );
+        }
+    }
+
+    static KapalTongkang addKapalTongkang() {
+        String nama, warna, tanggalPembuatan, kapasitasMaksimum;
+        int biayaPembuatan, beratMuatan;
+        Scanner myObj = new Scanner(System.in);
+        System.out.print("Masukkan Nama               : ");
+        nama = myObj.nextLine();
+        System.out.print("Masukkan Warna              : ");
+        warna = myObj.nextLine();
+        System.out.print("Masukkan Tanggal Pembuatan  : ");
+        tanggalPembuatan = myObj.nextLine();
+        System.out.print("Masukkan Kapasitas Maksimum : ");
+        kapasitasMaksimum = myObj.nextLine();
+        System.out.print("Masukkan Biaya Pembuatan    : ");
+        biayaPembuatan = myObj.nextInt();
+        System.out.print("Masukkan Berat Muatan    : ");
+        beratMuatan = myObj.nextInt();
+        return new KapalTongkang(nama, "Kapal Tongkang", warna, tanggalPembuatan, kapasitasMaksimum, biayaPembuatan, beratMuatan);
+    }
+    
 //  Gudang
     static String mapGudang(Gudang n, int i) {
         i+=1;
@@ -218,6 +309,8 @@ public class Main {
         // arrayList
         ArrayList<Karyawan> dataKaryawan = new ArrayList<>();
         ArrayList<Kapal> dataKapal = new ArrayList<>();
+        ArrayList<KapalTanker> dataKapalTanker = new ArrayList<>();
+        ArrayList<KapalTongkang> dataKapalTongkang = new ArrayList<>();
         ArrayList<Pembeli> dataPembeli = new ArrayList<>();
         ArrayList<Gudang> dataGudang = new ArrayList<>();
         ArrayList<Supplier> dataSupplier = new ArrayList<>();
@@ -234,12 +327,11 @@ public class Main {
 
         Kapal sumberRisky = new Kapal(
             "Sumber Risky",
-            "Kapal Minyak",
+            "Pesiar",
             "Oranye",
             "22-12-2021",
             "15ton",
-            200000,
-            250000
+            200000
         );
         dataKapal.add(sumberRisky);
 
@@ -252,7 +344,7 @@ public class Main {
         dataPembeli.add(riskyKurniawan);
 
         boolean repeat = true;
-        String pil, pil2, pil3;
+        String pil, pil2, pil3, pil4;
 
         while(repeat) {
             System.out.println("===== GALANGAN KAPAL PT. RISKY SEJAHTERA =====");
@@ -297,20 +389,89 @@ public class Main {
                     pil2 = myObj.nextLine();
                     System.out.println("\n");
                     switch (pil2) {
-                        case "1" -> fetchKapal(dataKapal);
-                        case "2" -> dataKapal.add(addKapal());
+                        case "1" -> {
+                            System.out.println("--- Kapal Tanker ---");
+                            fetchKapalTanker(dataKapalTanker);
+                            System.out.println("--- Kapal Tongkang ---");
+                            fetchKapalTongkang(dataKapalTongkang);
+                            System.out.println("--- Kapal Lainnya ---");
+                            fetchKapal(dataKapal);
+                        }
+                        case "2" -> {
+                            System.out.println("Jenis Kapal yang akan dimasukkan: ");
+                            System.out.println("1. Kapal Tanker");
+                            System.out.println("2. Kapal Tongkang");
+                            System.out.println("3. Kapal Lainnya");
+                            System.out.print("Masukkan Pilihan: ");
+                            pil3 = myObj.nextLine();
+                            switch (pil3) {
+                                case "1" -> dataKapalTanker.add(addKapalTanker());
+                                case "2" -> dataKapalTongkang.add(addKapalTongkang());
+                                default -> dataKapal.add(addKapal());                            
+                            }                            
+                        }
                         case "3" -> {
-                            fetchKapal(dataKapal);
-                            System.out.print("Masukkan Index Kapal Yang ingin anda ubah:");
+                            System.out.println("Jenis Kapal yang akan diubah: ");
+                            System.out.println("1. Kapal Tanker");
+                            System.out.println("2. Kapal Tongkang");
+                            System.out.println("3. Kapal Lainnya");
+                            System.out.print("Masukkan Pilihan: ");
                             pil3 = myObj.nextLine();
-                            dataKapal.set(Integer.parseInt(pil3) - 1, addKapal());
-                    }
+                            switch (pil3) {
+                                case "1" -> {
+                                    System.out.println("--- Kapal Tanker ---");
+                                    fetchKapalTanker(dataKapalTanker);
+                                    System.out.print("Masukkan Index Kapal Yang ingin anda ubah:");
+                                    pil4 = myObj.nextLine();
+                                    dataKapalTanker.set(Integer.parseInt(pil4) - 1, addKapalTanker());
+                                }
+                                case "2" -> {
+                                    System.out.println("--- Kapal Tongkang ---");
+                                    fetchKapalTongkang(dataKapalTongkang);
+                                    System.out.print("Masukkan Index Kapal Yang ingin anda ubah:");
+                                    pil4 = myObj.nextLine();
+                                    dataKapalTongkang.set(Integer.parseInt(pil4) - 1, addKapalTongkang());
+                                }
+                                case "3" -> {
+                                    System.out.println("--- Kapal Lainnya ---");
+                                    fetchKapal(dataKapal);
+                                    System.out.print("Masukkan Index Kapal Yang ingin anda ubah:");
+                                    pil4 = myObj.nextLine();
+                                    dataKapal.set(Integer.parseInt(pil4) - 1, addKapal());
+                                }
+                            }
+                        }
                         case "4" -> {
-                            fetchKapal(dataKapal);
-                            System.out.print("Masukkan Index Kapal Yang ingin anda hapus:");
+                            System.out.println("Jenis Kapal yang akan dihapus: ");
+                            System.out.println("1. Kapal Tanker");
+                            System.out.println("2. Kapal Tongkang");
+                            System.out.println("3. Kapal Lainnya");
+                            System.out.print("Masukkan Pilihan: ");
                             pil3 = myObj.nextLine();
-                            dataKapal.remove(Integer.parseInt(pil3) - 1);
-                    }
+                            switch (pil3) {
+                                case "1" -> {
+                                    System.out.println("--- Kapal Tanker ---");
+                                    fetchKapalTanker(dataKapalTanker);
+                                    System.out.print("Masukkan Index Kapal Yang ingin anda HAPUS:");
+                                    pil4 = myObj.nextLine();
+                                    dataKapalTanker.remove(Integer.parseInt(pil4) - 1);
+                                }
+                                case "2" -> {
+                                    System.out.println("--- Kapal Tongkang ---");
+                                    fetchKapalTongkang(dataKapalTongkang);
+                                    System.out.print("Masukkan Index Kapal Yang ingin anda HAPUS:");
+                                    pil4 = myObj.nextLine();
+                                    dataKapalTongkang.remove(Integer.parseInt(pil4) - 1);
+                                }
+                                case "3" -> {
+                                    System.out.println("--- Kapal Lainnya ---");
+                                    fetchKapal(dataKapal);
+                                    System.out.print("Masukkan Index Kapal Yang ingin anda HAPUS:");
+                                    pil4 = myObj.nextLine();
+                                    dataKapal.remove(Integer.parseInt(pil4) - 1);
+                                }
+                            }
+                        }
                         default -> System.out.println("Mohon maaf, Input anda salah!");
                     }
                 }
