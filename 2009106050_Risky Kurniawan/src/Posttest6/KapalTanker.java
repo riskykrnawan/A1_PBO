@@ -2,15 +2,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Posttest4;
+package Posttest6;
 
 /**
  *
  * @author Lenovo-PC
  */
-public class KapalTongkang extends Kapal {
+public class KapalTanker extends Kapal implements KapalPengangkut {
     private int beratMuatan;
-    KapalTongkang(String nama, 
+    KapalTanker(String nama, 
             String jenis, 
             String warna, 
             String tanggalPembuatan, 
@@ -36,10 +36,13 @@ public class KapalTongkang extends Kapal {
     }
     
     public final String angkutMuatan () {
-        return "Kapal tongkang sedang mengangkut muatan";
+        return "Kapal tanker sedang mengangkut muatan";
     }
     public final String angkutMuatan (int beratMuatan) {
-        return "Kapal tongkang sedang mengangkut muatan batu bara sebanyak " + beratMuatan + " ton";
+        return "Kapal tanker sedang mengangkut minyak sebanyak " + beratMuatan + " liter";
+    }
+    public final String turunMuatan () {
+        return "Kapal tanker sedang menurunkan muatan";
     }
     
 }

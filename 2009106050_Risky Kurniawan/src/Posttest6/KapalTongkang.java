@@ -2,13 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Posttest4;
+package Posttest6;
 
 /**
  *
  * @author Lenovo-PC
  */
-public class KapalTongkang extends Kapal {
+public class KapalTongkang extends Kapal implements KapalPengangkut{
     private int beratMuatan;
     KapalTongkang(String nama, 
             String jenis, 
@@ -41,5 +41,7 @@ public class KapalTongkang extends Kapal {
     public final String angkutMuatan (int beratMuatan) {
         return "Kapal tongkang sedang mengangkut muatan batu bara sebanyak " + beratMuatan + " ton";
     }
-    
+    public final String turunMuatan () {
+        return "Kapal tongkang sedang menurunkan muatan";
+    }
 }

@@ -35,10 +35,10 @@ public class KapalTanker extends Kapal {
         this.beratMuatan = beratMuatan;
     }
     
-    public String angkutMuatan () {
+    public final String angkutMuatan () {
         return "Kapal tanker sedang mengangkut muatan";
     }
-    public String angkutMuatan (int beratMuatan) {
+    public final String angkutMuatan (int beratMuatan) {
         return "Kapal tanker sedang mengangkut minyak sebanyak " + beratMuatan + " liter";
     }
     

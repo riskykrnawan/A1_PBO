@@ -1,5 +1,4 @@
-package Posttest4;
-
+package Posttest6;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -52,52 +51,6 @@ public class Main {
         gaji = myObj.nextInt();
         return new Karyawan(nama, alamat, jabatan, noTelp, gaji);
     }
-
-////  Kapal
-//    static String mapKapal(Kapal n, int i) {
-//        i+=1;
-//        return
-//            """
-//
-//            [""" + i + "]"  + "\n" +
-//            "ID                 : " + n.getId() + "\n" +
-//            "Nama               : " + n.getNama() + "\n" +
-//            "Jenis              : " + n.getJenis() + "\n" +
-//            "Warna              : " + n.getWarna() + "\n" +
-//            "Tanggal Pembuatan  : " + n.getTanggalPembuatan() + "\n" +
-//            "Kapasitas Maksimum : " + n.getKapasitasMaksimum() + "\n" +
-//            "Biaya Pembuatan    : " + n.getBiayaPembuatan() + "\n";
-//    }
-//
-//    static void fetchKapal(ArrayList<Kapal> dataKapal) {
-//        if (dataKapal.isEmpty()) {
-//            System.out.println("DATA KOSONG!");
-//        }
-//        for (int i = 0; i < dataKapal.size(); i++) {
-//            System.out.println(
-//                    mapKapal(dataKapal.get(i), i)
-//            );
-//        }
-//    }
-
-//    static Kapal addKapal() {
-//        String nama, jenis, warna, tanggalPembuatan, kapasitasMaksimum;
-//        int biayaPembuatan;
-//        Scanner myObj = new Scanner(System.in);
-//        System.out.print("Masukkan Nama               : ");
-//        nama = myObj.nextLine();
-//        System.out.print("Masukkan Jenis              : ");
-//        jenis = myObj.nextLine();
-//        System.out.print("Masukkan Warna              : ");
-//        warna = myObj.nextLine();
-//        System.out.print("Masukkan Tanggal Pembuatan  : ");
-//        tanggalPembuatan = myObj.nextLine();
-//        System.out.print("Masukkan Kapasitas Maksimum : ");
-//        kapasitasMaksimum = myObj.nextLine();
-//        System.out.print("Masukkan Biaya Pembuatan    : ");
-//        biayaPembuatan = myObj.nextInt();
-//        return new Kapal(nama, jenis, warna, tanggalPembuatan, kapasitasMaksimum, biayaPembuatan);
-//    }
         
 //  KapalTanker
     static String mapKapalTanker(KapalTanker n, int i) {
@@ -113,7 +66,10 @@ public class Main {
             "Tanggal Pembuatan  : " + n.getTanggalPembuatan() + "\n" +
             "Kapasitas Maksimum : " + n.getKapasitasMaksimum() + "\n" +
             "Biaya Pembuatan    : " + n.getBiayaPembuatan() + "\n" +
-            "Berat Muatan       : " + n.getBeratMuatan() + "\n";
+            "Berat Muatan       : " + n.getBeratMuatan() + "\n" + 
+            n.angkutMuatan() + "\n" +
+            n.turunMuatan() + "\n";
+            
     }
 
     static void fetchKapalTanker(ArrayList<KapalTanker> dataKapalTanker) {
@@ -160,7 +116,9 @@ public class Main {
             "Tanggal Pembuatan  : " + n.getTanggalPembuatan() + "\n" +
             "Kapasitas Maksimum : " + n.getKapasitasMaksimum() + "\n" +
             "Biaya Pembuatan    : " + n.getBiayaPembuatan() + "\n" +
-            "Berat Muatan       : " + n.getBeratMuatan() + "\n";
+            "Berat Muatan       : " + n.getBeratMuatan() + "\n" +
+            n.angkutMuatan() + "\n" +
+            n.turunMuatan() + "\n";
     }
 
     static void fetchKapalTongkang(ArrayList<KapalTongkang> dataKapalTongkang) {
@@ -325,16 +283,6 @@ public class Main {
         );
         dataKaryawan.add(risky);
 
-//        Kapal sumberRisky = new Kapal(
-//            "Sumber Risky",
-//            "Pesiar",
-//            "Oranye",
-//            "22-12-2021",
-//            "15ton",
-//            200000
-//        );
-//        dataKapal.add(sumberRisky);
-
         Pembeli riskyKurniawan = new Pembeli(
             "Risky Kurniawan",
             "Sebulu, Kutai Kartanegara 75552",
@@ -406,15 +354,13 @@ public class Main {
                             pil3 = myObj.nextLine();
                             switch (pil3) {
                                 case "1" -> dataKapalTanker.add(addKapalTanker());
-                                case "2" -> dataKapalTongkang.add(addKapalTongkang());
-//                                default -> dataKapal.add(addKapal());                            
+                                case "2" -> dataKapalTongkang.add(addKapalTongkang());                         
                             }                            
                         }
                         case "3" -> {
                             System.out.println("Jenis Kapal yang akan diubah: ");
                             System.out.println("1. Kapal Tanker");
                             System.out.println("2. Kapal Tongkang");
-                            System.out.println("3. Kapal Lainnya");
                             System.out.print("Masukkan Pilihan: ");
                             pil3 = myObj.nextLine();
                             switch (pil3) {
@@ -432,20 +378,12 @@ public class Main {
                                     pil4 = myObj.nextLine();
                                     dataKapalTongkang.set(Integer.parseInt(pil4) - 1, addKapalTongkang());
                                 }
-//                                case "3" -> {
-//                                    System.out.println("--- Kapal Lainnya ---");
-//                                    fetchKapal(dataKapal);
-//                                    System.out.print("Masukkan Index Kapal Yang ingin anda ubah:");
-//                                    pil4 = myObj.nextLine();
-//                                    dataKapal.set(Integer.parseInt(pil4) - 1, addKapal());
-//                                }
                             }
                         }
                         case "4" -> {
                             System.out.println("Jenis Kapal yang akan dihapus: ");
                             System.out.println("1. Kapal Tanker");
                             System.out.println("2. Kapal Tongkang");
-                            System.out.println("3. Kapal Lainnya");
                             System.out.print("Masukkan Pilihan: ");
                             pil3 = myObj.nextLine();
                             switch (pil3) {
@@ -463,13 +401,6 @@ public class Main {
                                     pil4 = myObj.nextLine();
                                     dataKapalTongkang.remove(Integer.parseInt(pil4) - 1);
                                 }
-//                                case "3" -> {
-//                                    System.out.println("--- Kapal Lainnya ---");
-//                                    fetchKapal(dataKapal);
-//                                    System.out.print("Masukkan Index Kapal Yang ingin anda HAPUS:");
-//                                    pil4 = myObj.nextLine();
-//                                    dataKapal.remove(Integer.parseInt(pil4) - 1);
-//                                }
                             }
                         }
                         default -> System.out.println("Mohon maaf, Input anda salah!");

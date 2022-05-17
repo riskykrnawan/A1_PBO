@@ -1,4 +1,4 @@
-package Posttest1;
+package posttest1;
 
 import java.util.ArrayList;
 import java.util.Scanner;

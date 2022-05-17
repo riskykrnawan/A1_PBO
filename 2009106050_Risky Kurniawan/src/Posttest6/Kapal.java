@@ -1,5 +1,4 @@
-package Posttest4;
-
+package Posttest6;
 import java.util.UUID;
 
 public abstract class Kapal {
@@ -64,11 +63,7 @@ public abstract class Kapal {
     }
     public void setBiayaPembuatan(int biayaPembuatan) {
         this.biayaPembuatan = biayaPembuatan;
-    }
-    public abstract String angkutMuatan ();
-    public abstract String angkutMuatan (int beratMuatan);
-    
-//    public final void servisKapal ();
+    }    
     public final void servisKapal (int beratMuatan) {
         System.out.println("Kapal sedang diservis");
     };
